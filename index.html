@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Elegí Cuidar Tu Salud con Nosotros - TuPrepaga</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- INICIO: Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- FIN: Font Awesome CDN -->
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="logo">
+      <!-- Asegúrate que la ruta a tu logo sea correcta, ej: images/tu-logo.png -->
+      <img src="images/tu-logo.png" alt="Logo TuPrepaga">
+    </div>
+    <div class="contact-info">
+      <p>¿Consultas? <a href="tel:+5491180591305">Llamanos al 11 8059-1305</a></p>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <h1>La Cobertura de Salud que Vos y tu Familia Merecen</h1>
+      <p>Planes pensados para tu bienestar, con la mejor atención y una amplia red de prestadores en todo el país.</p>
+      <!-- Convertimos el strong en un botón/enlace -->
+      <a href="#formulario" class="hero-cta-button">¡Cotizá tu plan ideal ahora!</a>
+    </div>
+    <div class="hero-form-container" id="hero-form">
+      
+      <!-- PESTAÑAS -->
+      <div class="form-tabs">
+        <button class="tab-link active" data-tab="personas">Personas</button>
+        <button class="tab-link" data-tab="empresas">Empresas</button>
+      </div>
+
+      <!-- CONTENIDO DE PESTAÑAS -->
+      <div id="personas" class="tab-content active">
+        <h2>Dejanos tus datos y te asesoramos (Personas)</h2>
+        <form id="formulario"> <!-- ID original del formulario -->
+          <label for="nombre">Nombre completo *</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Ej: Ana Pérez" required>
+
+          <label for="telefono">Teléfono (con código de área) *</label>
+          <input type="tel" id="telefono" name="telefono" placeholder="Ej: 1134567890" required>
+
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" placeholder="tuemail@ejemplo.com">
+
+          <label for="localidad">Localidad</label>
+          <input type="text" id="localidad" name="localidad" placeholder="Ej: Palermo, CABA">
+          
+          <button type="submit" class="form-button">Solicitar Asesoramiento</button>
+        </form>
+        <div id="feedback" class="feedback-message"></div> <!-- Mantenemos el feedback general -->
+      </div>
+
+      <div id="empresas" class="tab-content">
+        <h2>Dejanos tus datos y te asesoramos (Empresas)</h2>
+        <form id="formulario-empresas"> <!-- Nuevo ID para el formulario de empresas -->
+          <label for="empresa-nombre">Nombre de la Empresa *</label>
+          <input type="text" id="empresa-nombre" name="empresa-nombre" placeholder="Ej: Mi Empresa SRL" required>
+          
+          <label for="empresa-cuit">CUIT *</label>
+          <input type="text" id="empresa-cuit" name="empresa-cuit" placeholder="Ej: 30-12345678-9" required>
+
+          <label for="empresa-contacto-nombre">Nombre del Contacto *</label>
+          <input type="text" id="empresa-contacto-nombre" name="empresa-contacto-nombre" placeholder="Ej: Juan Rodríguez" required>
+
+          <label for="empresa-telefono">Teléfono de Contacto *</label>
+          <input type="tel" id="empresa-telefono" name="empresa-telefono" placeholder="Ej: 1134567890" required>
+
+          <label for="empresa-email">Correo electrónico de Contacto</label>
+          <input type="email" id="empresa-email" name="empresa-email" placeholder="contacto@miempresa.com">
+          
+          <label for="empresa-cantidad-empleados">Cantidad de Empleados (aprox.)</label>
+          <input type="number" id="empresa-cantidad-empleados" name="empresa-cantidad-empleados" placeholder="Ej: 10">
+
+          <button type="submit" class="form-button">Solicitar Asesoramiento Empresas</button>
+        </form>
+        <div id="feedback-empresas" class="feedback-message"></div> <!-- Feedback específico para empresas -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="benefits">
+  <div class="container">
+    <h2>¿Por qué elegir TuPrepaga?</h2>
+    <div class="benefits-grid">
+      <div class="benefit-item">
+        <div class="icon">
+          <i class="fas fa-hospital"></i> <!-- Icono para Cobertura -->
+      </div>
+        <h3>Amplia Cobertura Nacional</h3>
+        <p>Accedé a una extensa red de sanatorios, clínicas y profesionales en todo el país.</p>
+      </div>
+      <div class="benefit-item">
+        <div class="icon">
+          <i class="fas fa-user-doctor"></i> <!-- Icono para Atención Inmediata -->
+      </div>
+        <h3>Atención Inmediata</h3>
+        <p>Gestiones ágiles y acceso rápido a consultas, estudios y urgencias cuando más lo necesitás.</p>
+      </div>
+      <div class="benefit-item">
+        <div class="icon">
+          <i class="fas fa-hand-holding-dollar"></i> <!-- Icono para Planes Accesibles -->
+    </div>
+        <h3>Planes Accesibles</h3>
+        <p>Opciones de cobertura que se adaptan a tu presupuesto sin sacrificar calidad de servicio.</p>
+  </div>
+      <div class="benefit-item">
+        <div class="icon">
+          <i class="fas fa-mobile-screen-button"></i> <!-- Icono para Gestión Online -->
+      </div>
+        <h3>Gestión Online</h3>
+        <p>Realizá tus trámites, consultas y gestiones de forma simple desde nuestra app o web.</p>
+      </div>
+      </div>
+    </div>
+</section>
+
+<section id="planes-section" class="planes">
+  <div class="container">
+    <h2>Conocé Nuestros Planes</h2>
+    <p class="planes-subtitulo">Tenemos una opción pensada para cada necesidad y presupuesto. Hacé clic en cada plan para ver los detalles.</p>
+    <div class="planes-layout-container">
+      <div class="planes-columna">
+      <!-- Plan 1 -->
+      <div class="plan-item">
+        <button class="plan-header">
+          <span>Plan Esencial Joven</span>
+          <i class="fas fa-chevron-down plan-icon"></i>
+        </button>
+        <div class="plan-content">
+          <p>Ideal para jóvenes y estudiantes que buscan una cobertura completa a un precio accesible.</p>
+          <ul>
+            <li>Consultas médicas ilimitadas en cartilla.</li>
+            <li>Guardia y emergencias 24hs.</li>
+            <li>Descuentos en farmacias adheridas (40%).</li>
+            <li>Odontología general.</li>
+            <li>Estudios de diagnóstico básicos.</li>
+          </ul>
+          <a href="#formulario" class="plan-cta-button">Me interesa este plan</a>
+  </div>
+      </div>
+
+      <!-- Plan 2 -->
+      <div class="plan-item">
+        <button class="plan-header">
+          <span>Plan Familiar Integral</span>
+          <i class="fas fa-chevron-down plan-icon"></i>
+        </button>
+        <div class="plan-content">
+          <p>Cobertura completa para toda la familia, incluyendo maternidad y pediatría especializada.</p>
+          <ul>
+            <li>Todo lo incluido en Plan Esencial Joven.</li>
+            <li>Cobertura de maternidad y recién nacido.</li>
+            <li>Pediatría especializada.</li>
+            <li>Ortodoncia (hasta 18 años).</li>
+            <li>Internación en habitación individual.</li>
+            <li>Asistencia al viajero nacional.</li>
+          </ul>
+          <a href="#formulario" class="plan-cta-button">Me interesa este plan</a>
+        </div>
+      </div>
+
+      <!-- Plan 3 -->
+      <div class="plan-item">
+        <button class="plan-header">
+          <span>Plan Premium Plus</span>
+          <i class="fas fa-chevron-down plan-icon"></i>
+        </button>
+        <div class="plan-content">
+          <p>La máxima cobertura con acceso a prestadores exclusivos y beneficios diferenciales.</p>
+          <ul>
+            <li>Todo lo incluido en Plan Familiar Integral.</li>
+            <li>Acceso a cartilla premium de profesionales y sanatorios.</li>
+            <li>Reintegros por consultas fuera de cartilla.</li>
+            <li>Cirugía estética (bajo condiciones).</li>
+            <li>Cobertura internacional.</li>
+            <li>Check-up anual preventivo.</li>
+          </ul>
+          <a href="#formulario" class="plan-cta-button">Me interesa este plan</a>
+        </div>
+      </div>
+
+        <!-- Plan 4 -->
+      <div class="plan-item">
+        <button class="plan-header">
+          <span>Plan Monotributo Activo</span>
+          <i class="fas fa-chevron-down plan-icon"></i>
+        </button>
+        <div class="plan-content">
+          <p>Diseñado para monotributistas, optimizando aportes y brindando una excelente cobertura.</p>
+          <ul>
+            <li>Consultas y prácticas médicas.</li>
+            <li>Internación clínica y quirúrgica.</li>
+            <li>Descuentos en medicamentos.</li>
+            <li>Odontología básica.</li>
+            <li>Urgencias médicas.</li>
+          </ul>
+          <a href="#formulario" class="plan-cta-button">Me interesa este plan</a>
+        </div>
+      </div>
+      
+        <!-- Plan 5 -->
+      <div class="plan-item">
+        <button class="plan-header">
+          <span>Plan Adultos Mayores Vital</span>
+          <i class="fas fa-chevron-down plan-icon"></i>
+        </button>
+        <div class="plan-content">
+          <p>Cobertura pensada para las necesidades específicas de los adultos mayores, con foco en prevención y bienestar.</p>
+          <ul>
+            <li>Amplia cobertura en especialidades geriátricas.</li>
+            <li>Programas de prevención y seguimiento de enfermedades crónicas.</li>
+            <li>Descuentos especiales en farmacias.</li>
+            <li>Kinesiología y rehabilitación.</li>
+            <li>Asistencia domiciliaria (bajo condiciones).</li>
+          </ul>
+          <a href="#formulario" class="plan-cta-button">Me interesa este plan</a>
+        </div>
+      </div>
+    </div>
+      <div class="planes-columna">
+        <!-- Plan 6 (Ejemplo - Deberás crear el contenido real) -->
+        <div class="plan-item">
+          <button class="plan-header">
+            <span>Plan Joven Profesional</span>
+            <i class="fas fa-chevron-down plan-icon"></i>
+          </button>
+          <div class="plan-content">
+            <p>Cobertura ideal para profesionales recién iniciados, con foco en reintegros y servicios ágiles.</p>
+            <ul>
+              <li>Consultas médicas con copago reducido.</li>
+              <li>Reintegros por kinesiología y psicología.</li>
+              <li>Descuentos en ópticas.</li>
+              <li>Odontología compleja.</li>
+              <li>Acceso a gimnasios con descuento.</li>
+            </ul>
+            <a href="#formulario" class="plan-cta-button">Me interesa este plan</a>
+          </div>
+        </div>
+        
+        <!-- Plan 7 (Ejemplo) -->
+        <div class="plan-item">
+          <button class="plan-header">
+            <span>Plan Emprendedor Start</span>
+            <i class="fas fa-chevron-down plan-icon"></i>
+          </button>
+          <div class="plan-content">
+            <p>Para emprendedores que necesitan flexibilidad y cobertura esencial sin grandes costos.</p>
+            <ul>
+              <li>Atención primaria y especialistas básicos.</li>
+              <li>Estudios de baja complejidad.</li>
+              <li>Servicio de telemedicina.</li>
+              <li>Descuentos en farmacias.</li>
+              <li>Urgencias odontológicas.</li>
+            </ul>
+            <a href="#formulario" class="plan-cta-button">Me interesa este plan</a>
+          </div>
+        </div>
+
+        <!-- Plan 8 (Ejemplo) -->
+        <div class="plan-item">
+          <button class="plan-header">
+            <span>Plan Cobertura Total Oro</span>
+            <i class="fas fa-chevron-down plan-icon"></i>
+          </button>
+          <div class="plan-content">
+            <p>Una opción superior con amplia cartilla y servicios adicionales para tu tranquilidad.</p>
+            <ul>
+              <li>Internación en habitación privada superior.</li>
+              <li>Cobertura en tratamientos de fertilidad.</li>
+              <li>Implantes odontológicos (parcial).</li>
+              <li>Asistencia al viajero internacional premium.</li>
+              <li>Segunda opinión médica internacional.</li>
+            </ul>
+            <a href="#formulario" class="plan-cta-button">Me interesa este plan</a>
+          </div>
+        </div>
+        
+        <!-- Plan 9 (Ejemplo) -->
+        <div class="plan-item">
+          <button class="plan-header">
+            <span>Plan Estudiantes Extranjeros</span>
+            <i class="fas fa-chevron-down plan-icon"></i>
+          </button>
+          <div class="plan-content">
+            <p>Cobertura médica diseñada para estudiantes internacionales durante su estadía.</p>
+            <ul>
+              <li>Atención médica general y especialistas.</li>
+              <li>Urgencias y emergencias.</li>
+              <li>Repatriación sanitaria.</li>
+              <li>Odontología de urgencia.</li>
+              <li>Asesoramiento legal básico.</li>
+            </ul>
+            <a href="#formulario" class="plan-cta-button">Me interesa este plan</a>
+  </div>
+  </div>
+
+        <!-- Plan 10 (Ejemplo) -->
+        <div class="plan-item">
+          <button class="plan-header">
+            <span>Plan Corporativo Base</span>
+            <i class="fas fa-chevron-down plan-icon"></i>
+          </button>
+          <div class="plan-content">
+            <p>Solución de salud para pequeñas y medianas empresas, cuidando a tus empleados.</p>
+            <ul>
+              <li>Cobertura médica integral para empleados.</li>
+              <li>Medicina laboral y exámenes periódicos.</li>
+              <li>Programas de bienestar corporativo.</li>
+              <li>Gestor de cuentas dedicado.</li>
+              <li>Tarifas preferenciales por volumen.</li>
+            </ul>
+            <a href="#formulario" class="plan-cta-button">Me interesa este plan</a>
+          </div>
+        </div>
+
+        <!-- Si necesitas un Plan 11, agrégalo aquí o distribuye 6 en una columna y 5 en la otra -->
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="container">
+    <h2>Lo que dicen nuestros afiliados</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial-item">
+        <p>“Desde que me cambié a TuPrepaga, la atención es mucho más rápida y personalizada. ¡Estoy muy conforme!”</p>
+        <span>– Mariana G.</span>
+      </div>
+      <div class="testimonial-item">
+        <p>“Conseguí un plan familiar excelente a un precio muy conveniente. La cartilla es muy completa.”</p>
+        <span>– Carlos P.</span>
+      </div>
+      <div class="testimonial-item">
+        <p>“Tuve una urgencia y me atendieron de maravilla. Sentí el respaldo de mi cobertura en todo momento.”</p>
+        <span>– Laura S.</span>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="container">
+    <p>© 2025 TuPrepaga. Todos los derechos reservados.</p>
+    <p>Para más información, contactanos a <a href="mailto:info@tuprepaga.com.ar">info@tuprepaga.com.ar</a> o llamanos al <a href="tel:+5491180591305">11 8059-1305</a>.</p>
+  </div>
+</footer>
+
+<!-- Enlace al archivo JavaScript externo. 'defer' asegura que se ejecute después de parsear el HTML -->
+<script src="js/script.js" defer></script>
+</body>
+</html>

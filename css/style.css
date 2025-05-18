@@ -1,0 +1,551 @@
+:root {
+  --primary-color: #0033A0; /* Azul principal Sancor Salud */
+  --secondary-color: #00AEEF; /* Celeste Sancor Salud */
+  --text-color: #333;
+  --light-gray: #f4f4f4;
+  --white: #ffffff;
+  --dark-gray: #484747;
+}
+
+body {
+  font-family: 'Montserrat', Arial, sans-serif;
+  background: var(--white);
+  margin: 0;
+  padding: 0;
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.container-fluid {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Header */
+header {
+  background: var(--white);
+  padding: 1rem 0;
+  border-bottom: 1px solid #e0e0e0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo img {
+  height: 50px; /* Ajusta según tu logo */
+  width: auto;
+}
+
+header .contact-info {
+  font-size: 0.9rem;
+  text-align: right;
+}
+
+header .contact-info a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+header .contact-info a:hover {
+  color: var(--secondary-color);
+}
+
+/* Hero Section */
+.hero {
+  background-image: url('../images/ImagenWeb.png'); 
+  background-size: cover;
+  background-position: center;
+  color: var(--white);
+  padding: 80px 0; /* Aumentamos el padding vertical del hero para dar más espacio */
+  position: relative;
+  display: flex; /* Añadido para centrar verticalmente el .container si es necesario */
+  align-items: center; /* Añadido para centrar verticalmente el .container */
+  min-height: 70vh; /* Asegura una altura mínima para el hero */
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 25, 60, 0.6); 
+}
+
+.hero .container {
+  position: relative; 
+  z-index: 1;
+  display: flex;
+  align-items: center; /* Mantenemos la alineación vertical de los hijos (content y form) */
+  gap: 30px;
+  width: 100%; /* Asegura que el container ocupe el ancho */
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 55%; /* Ajusta según necesites, puede ser un poco más si el form es más pequeño */
+  padding-top: 50px; /* EMPUJA EL CONTENIDO HACIA ABAJO DENTRO DE SU CONTENEDOR */
+  /* Opcional: si quieres centrar el texto dentro de hero-content si es más alto */
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: center; */
+}
+
+.hero-content h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem; /* Aumentamos un poco el margen inferior del H1 */
+  line-height: 1.2;
+  /* margin-top: 0;  Aseguramos que no haya margen superior extra si se usa flex en hero-content */
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem; /* Aumentamos el margen inferior del párrafo */
+}
+
+/* Estilos para el nuevo botón CTA en el Hero */
+.hero-cta-button {
+  display: inline-block; /* Para que respete padding y margin */
+  background-color: var(--secondary-color); /* Mismo color que el botón del formulario */
+  color: var(--white);
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 4px;
+  text-decoration: none; /* Quitar subrayado de enlace */
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.hero-cta-button:hover {
+  background-color: #008cbf; /* Tono más oscuro de secondary-color */
+  transform: translateY(-2px); /* Ligero efecto al pasar el mouse */
+}
+
+.hero-form-container {
+  flex: 1;
+  max-width: 450px; /* Aumentamos un poco el ancho para las pestañas */
+  background: var(--white);
+  padding: 1.5rem 2rem 2.5rem; /* Ajustamos padding para las pestañas */
+  border-radius: 18px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+  color: var(--text-color);
+}
+
+.hero-form-container h2 { /* Estilo para los títulos dentro de las pestañas */
+  color: var(--primary-color);
+  font-size: 1.5rem; /* Ligeramente más pequeño */
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Estilos para Pestañas del Formulario */
+.form-tabs {
+  display: flex;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.tab-link {
+  flex: 1;
+  padding: 12px 10px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--dark-gray);
+  font-family: 'Montserrat', sans-serif;
+  border-bottom: 3px solid transparent; /* Borde inferior para la pestaña activa */
+  transition: color 0.3s ease, border-color 0.3s ease;
+  margin-bottom: -1px; /* Para que el borde inferior se superponga con el del contenedor */
+}
+
+.tab-link:hover {
+  color: var(--primary-color);
+}
+  
+.tab-link.active { /* Estilos para la pestaña del botón activo */
+  color: var(--primary-color);
+  border-bottom-color: var(--primary-color);
+}
+
+.tab-content { /* Por defecto, el contenido de las pestañas está oculto */
+  display: none; 
+}
+
+.tab-content.active { /* Solo el contenido de la pestaña con clase "active" se muestra */
+  display: block; 
+}
+
+/* Benefits Section */
+.benefits {
+  padding: 60px 0;
+  background: var(--light-gray);
+}
+
+.benefits h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  color: var(--primary-color);
+  margin-bottom: 40px;
+}
+.benefits-grid {
+  display: flex; /* 1. Cambiamos de grid a flex */
+  justify-content: space-between; /* 2. Distribuye el espacio entre los ítems */
+  gap: 20px; /* 3. Espacio entre los ítems (puedes ajustar este valor) */
+  flex-wrap: nowrap; /* 4. Asegura que no se envuelvan a la siguiente línea */
+}
+.benefit-item {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  flex-basis: 23%; /* 5. Define el ancho base de cada ítem (aproximadamente 1/4 menos el gap) */
+  /* Opcionalmente, puedes usar flex: 1; si quieres que crezcan y se encojan para llenar el espacio,
+     pero con flex-basis y nowrap es más directo para mantenerlos en una fila con un tamaño base. */
+  min-width: 200px; /* 6. (Opcional) Ancho mínimo para evitar que se compriman demasiado en pantallas muy pequeñas si no hay scroll horizontal */
+}
+
+.benefit-item .icon {
+  font-size: 2.8rem;
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+}
+
+.benefit-item .icon i {
+  /* Estilos específicos para el ícono si son necesarios */
+}
+
+.benefit-item h3 {
+  font-size: 1.3rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+/* Testimonials Section */
+.testimonials {
+  padding: 60px 0;
+}
+
+.testimonials h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  color: var(--primary-color);
+  margin-bottom: 40px;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.testimonial-item {
+  background: var(--light-gray);
+  padding: 1.5rem;
+  border-left: 5px solid var(--secondary-color);
+  border-radius: 4px;
+}
+
+.testimonial-item p {
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.testimonial-item span {
+  display: block;
+  text-align: right;
+  font-weight: 600;
+  color: var(--dark-gray);
+}
+
+/* Footer */
+footer {
+  background: var(--primary-color);
+  color: var(--white);
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 40px;
+}
+footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+footer a {
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Feedback Message */
+.feedback-message {
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 4px;
+  text-align: center;
+  display: none; /* Oculto por defecto */
+  font-size: 0.9rem;
+}
+.feedback-message.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+.feedback-message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Planes Section */
+.planes {
+  padding: 60px 0;
+  background-color: var(--white); /* O var(--light-gray) si prefieres alternar fondos */
+}
+
+.planes h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.planes-subtitulo {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--dark-gray);
+  margin-bottom: 40px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.planes-layout-container {
+  display: flex;
+  gap: 30px; /* Espacio entre las dos columnas de acordeones */
+  max-width: 1200px; /* Ajusta el ancho máximo si es necesario */
+  margin: 0 auto; /* Centra el contenedor de las columnas */
+}
+
+.planes-columna {
+  flex: 1; /* Cada columna tomará la mitad del espacio disponible */
+  /* Opcional: si quieres un ancho base específico para cada columna */
+  /* min-width: 400px; */
+}
+
+.planes-acordeon {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden; 
+  margin-bottom: 20px; /* Añadimos un margen inferior si hay múltiples acordeones en una columna (aunque aquí cada columna tiene uno) */
+}
+
+.plan-item {
+  border-bottom: 1px solid #e0e0e0;
+}
+.plan-item:last-child {
+  border-bottom: none; /* Quitar el borde del último ítem */
+}
+
+.plan-header {
+  background-color: #f9f9f9;
+  color: var(--primary-color);
+  cursor: pointer;
+  padding: 18px 25px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 1.05rem; /* Ligeramente más pequeño para que quepan más planes si es necesario */
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.plan-header:hover,
+.plan-header.active {
+  background-color: #f0f0f0;
+}
+
+.plan-header .plan-icon {
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
+  color: var(--secondary-color);
+}
+
+.plan-header.active .plan-icon {
+  transform: rotate(180deg);
+}
+
+.plan-content {
+  padding: 0 25px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out, padding 0.4s ease-out; /* Transición suave */
+}
+
+.plan-content p {
+  margin-top: 15px; /* Para que el padding de arriba se aplique bien en la transición */
+  margin-bottom: 15px;
+  line-height: 1.7;
+  color: var(--text-color);
+}
+
+.plan-content ul {
+  list-style: none; /* Quitar viñetas por defecto */
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+
+.plan-content ul li {
+  padding-left: 25px;
+  position: relative;
+  margin-bottom: 8px;
+  color: var(--dark-gray);
+}
+
+.plan-content ul li::before {
+  content: '\f00c'; /* Código de Font Awesome para un check mark */
+  font-family: 'Font Awesome 6 Free'; /* Asegúrate que coincida con la versión de FA */
+  font-weight: 900; /* Necesario para iconos sólidos */
+  position: absolute;
+  left: 0;
+  top: 2px;
+  color: var(--secondary-color); /* Color del check mark */
+  font-size: 0.9em;
+}
+
+.plan-cta-button {
+  display: inline-block;
+  background-color: var(--secondary-color);
+  color: var(--white);
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 4px;
+  text-decoration: none;
+  margin-bottom: 20px; /* Espacio después del botón */
+  transition: background-color 0.3s ease;
+}
+
+.plan-cta-button:hover {
+  background-color: #008cbf;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .hero .container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-content {
+    max-width: 100%;
+    margin-bottom: 30px;
+    padding-top: 20px; /* Reducir el padding-top en tablet/móvil */
+  }
+  .hero-form-container {
+    max-width: 500px; 
+    margin: 0 auto;
+  }
+  .hero-content h1 {
+    font-size: 2.4rem;
+  }
+  .hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem; /* Ajustar margen del párrafo */
+  }
+  .hero-cta-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+}
+  
+@media (max-width: 768px) {
+  header .container {
+    flex-direction: column;
+    gap: 10px;
+  }
+  header .contact-info {
+    text-align: center;
+  }
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  .benefits-grid, .testimonial-grid {
+    grid-template-columns: 1fr; /* Una columna en móviles */
+  }
+  
+  /* ESTA REGLA ES LA QUE HACE QUE SE PONGAN EN UNA COLUMNA EN MÓVILES.
+     SI QUIERES QUE SIEMPRE ESTÉN EN FILA, DEBES ELIMINARLA O MODIFICARLA. */
+  /* .benefits-grid, .testimonial-grid {
+    grid-template-columns: 1fr; 
+  } */
+
+  /* Si quieres que en móviles haya scroll horizontal para ver las 4 tarjetas: */
+  .benefits-grid {
+    overflow-x: auto; /* Permite scroll horizontal */
+    padding-bottom: 15px; /* Espacio para la barra de scroll si aparece */
+    justify-content: flex-start; /* Alinea los ítems al inicio si hay scroll */
+  }
+  .plan-item {
+    flex-shrink: 0; /* Evita que los ítems se encojan para caber sin scroll */
+    width: 250px; /* Dales un ancho fijo en móviles si usas scroll horizontal */
+    /* O ajusta flex-basis y min-width según necesites */
+  }
+}
+
+@media (max-width: 992px) { /* Para tablets */
+  .planes-layout-container {
+    /* gap: 20px; Podrías reducir el gap si es necesario */
+  }
+  .plan-header {
+    font-size: 1rem; /* Ajustar tamaño de fuente en tablet */
+    padding: 15px 20px;
+  }
+  .plan-content {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 768px) { /* Para móviles */
+  .planes-layout-container {
+    flex-direction: column; /* Apila las columnas en móviles */
+    gap: 0; /* Quitar el gap horizontal, el margen de .planes-acordeon se encargará del vertical */
+  }
+  .planes-columna {
+    /* flex: none;  No es necesario si flex-direction es column */
+    /* width: 100%; No es necesario si flex-direction es column */
+  }
+  .planes-acordeon {
+    /* El margin-bottom: 20px; que añadimos antes ayudará a separar los acordeones cuando estén en columna */
+  }
+  .plan-header {
+    font-size: 1.05rem; /* Volver al tamaño original o ajustarlo para móvil */
+    padding: 18px 25px;
+  }
+}
