@@ -1,10 +1,29 @@
 :root {
-  --primary-color: #0033A0; /* Azul principal Sancor Salud */
-  --secondary-color: #00AEEF; /* Celeste Sancor Salud */
-  --text-color: #333;
-  --light-gray: #f4f4f4;
+  --primary-color: #0033A0; /* Azul principal */
+  --secondary-color: #00AEEF; /* Celeste de acento */
+  --text-color: #333; /* Color de texto principal */
+  --dark-gray: #555; /* Gris oscuro para texto secundario o labels */
+  --light-gray: #f4f4f4; /* Fondo claro para secciones alternas */
   --white: #ffffff;
-  --dark-gray: #484747;
+  --border-soft-color: #e7eaf3; /* Color para bordes suaves */
+  --placeholder-color: #adb5bd; /* Color para placeholders */
+  --success-bg: #e6ffed;
+  --success-text: #2f6f42;
+  --success-border: #c3e6cb;
+  --error-bg: #f8d7da;
+  --error-text: #721c24;
+  --error-border: #f5c6cb;
+
+  /* Radios de Borde Consistentes */
+  --border-radius-small: 5px; /* Para inputs, botones pequeños */
+  --border-radius-medium: 8px; /* Para tarjetas, contenedores de acordeón */
+  --border-radius-large: 12px; /* Para contenedores principales como el del formulario */
+
+  /* Sombras Consistentes */
+  --box-shadow-subtle: 0 4px 15px rgba(0, 25, 60, 0.07);
+  --box-shadow-form: 0 8px 30px rgba(0, 25, 60, 0.12);
+  --box-shadow-button: 0 2px 5px rgba(0,0,0,0.1);
+  --box-shadow-button-hover: 0 4px 8px rgba(0,0,0,0.15);
 }
 
 body {
@@ -14,6 +33,9 @@ body {
   padding: 0;
   color: var(--text-color);
   line-height: 1.6;
+  font-size: 16px; 
+  -webkit-font-smoothing: antialiased; /* Mejor renderizado de fuentes */
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .container-fluid {
@@ -30,227 +52,541 @@ body {
   padding: 0 15px;
 }
 
+/* Títulos de Sección Principales */
+.benefits h2,
+.planes h2,
+.testimonials h2 {
+  font-size: 2.2rem; 
+  color: var(--primary-color);
+  margin-bottom: 40px; 
+  text-align: center;
+  font-weight: 700; 
+}
+
 /* Header */
 header {
   background: var(--white);
-  padding: 1rem 0;
-  border-bottom: 1px solid #e0e0e0;
+  padding: 1.2rem 0; 
+  border-bottom: 1px solid var(--border-soft-color); 
   position: sticky;
   top: 0;
   z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Sombra sutil para el header fijo */
 }
-
-header .container {
+  header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
+  }
 
 header .logo img {
-  height: 50px; /* Ajusta según tu logo */
+  height: 50px; 
   width: auto;
-}
+  vertical-align: middle; 
+  }
 
-header .contact-info {
-  font-size: 0.9rem;
-  text-align: right;
-}
-
+header .contact-info p { 
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 500; 
+  }
 header .contact-info a {
   color: var(--primary-color);
   text-decoration: none;
   font-weight: 600;
-}
+  transition: color 0.2s ease;
+  }
 header .contact-info a:hover {
   color: var(--secondary-color);
 }
-
+  
 /* Hero Section */
 .hero {
-  background-image: url('../images/ImagenWeb.png'); 
+  background-image: url('../images/ImagenWeb.png'); /* Asegúrate que esta ruta sea correcta */
   background-size: cover;
   background-position: center;
   color: var(--white);
-  padding: 80px 0; /* Aumentamos el padding vertical del hero para dar más espacio */
+  padding: 50px 0; 
   position: relative;
-  display: flex; /* Añadido para centrar verticalmente el .container si es necesario */
-  align-items: center; /* Añadido para centrar verticalmente el .container */
-  min-height: 70vh; /* Asegura una altura mínima para el hero */
+  display: flex; 
+  align-items: center; 
 }
-.hero::before {
+.hero::before { 
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 25, 60, 0.6); 
+  background: rgba(0, 25, 60, 0.65); /* Overlay un poco más oscuro para mejor contraste */
 }
 
 .hero .container {
   position: relative; 
   z-index: 1;
   display: flex;
-  align-items: center; /* Mantenemos la alineación vertical de los hijos (content y form) */
-  gap: 30px;
-  width: 100%; /* Asegura que el container ocupe el ancho */
+  align-items: center; 
+  gap: 30px; /* Ajustar según sea necesario */
+  width: 100%; 
 }
 
 .hero-content {
   flex: 1;
-  max-width: 55%; /* Ajusta según necesites, puede ser un poco más si el form es más pequeño */
-  padding-top: 50px; /* EMPUJA EL CONTENIDO HACIA ABAJO DENTRO DE SU CONTENEDOR */
-  /* Opcional: si quieres centrar el texto dentro de hero-content si es más alto */
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* justify-content: center; */
+  max-width: 50%; 
+  padding-top: 20px; /* Ajustar según sea necesario */
 }
 
 .hero-content h1 {
-  font-size: 2.8rem;
+  font-size: 2.6rem; 
   font-weight: 700;
-  margin-bottom: 1.5rem; /* Aumentamos un poco el margen inferior del H1 */
+  margin-bottom: 1rem; 
   line-height: 1.2;
-  /* margin-top: 0;  Aseguramos que no haya margen superior extra si se usa flex en hero-content */
 }
 
-.hero-content p {
-  font-size: 1.2rem;
-  margin-bottom: 2.5rem; /* Aumentamos el margen inferior del párrafo */
+.hero-content p { 
+  font-size: 1.1rem; 
+  margin-bottom: 1.8rem;
+  max-width: 580px; 
+  /* margin-left: auto;  No necesario si el texto no está centrado */
+  /* margin-right: auto; */
 }
 
-/* Estilos para el nuevo botón CTA en el Hero */
-.hero-cta-button {
-  display: inline-block; /* Para que respete padding y margin */
-  background-color: var(--secondary-color); /* Mismo color que el botón del formulario */
+/* Estilo Base para Botones Principales */
+.button-primary-base { 
+  display: inline-block;
+  background-color: var(--secondary-color);
   color: var(--white);
-  padding: 12px 25px;
-  font-size: 1.1rem;
+  border: none;
+  padding: 14px 28px; 
+  font-size: 1rem;    
   font-weight: 600;
-  border-radius: 4px;
-  text-decoration: none; /* Quitar subrayado de enlace */
+  letter-spacing: 0.5px;
+  border-radius: var(--border-radius-small); 
+  cursor: pointer;
   text-transform: uppercase;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out, box-shadow 0.2s ease-in-out;
+  box-shadow: var(--box-shadow-button);
+}
+.button-primary-base:hover {
+  background-color: #008cbf; 
+  box-shadow: var(--box-shadow-button-hover);
+  transform: translateY(-2px); /* Efecto hover más notable */
+}
+.button-primary-base:active {
+  transform: translateY(0px); /* Resetear el translateY del hover y aplicar efecto presionado */
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1); /* Sombra interna al presionar */
 }
 
-.hero-cta-button:hover {
-  background-color: #008cbf; /* Tono más oscuro de secondary-color */
-  transform: translateY(-2px); /* Ligero efecto al pasar el mouse */
+/* Aplicar a los botones existentes */
+.hero-form-container .form-button,
+.hero-cta-button {
+  /* Heredar o copiar los estilos de .button-primary-base */
+  display: inline-block; 
+  background-color: var(--secondary-color);
+  color: var(--white);
+  border: none;
+  padding: 14px 28px;
+  font-size: 1rem;   
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border-radius: var(--border-radius-small); 
+  cursor: pointer;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out, box-shadow 0.2s ease-in-out;
+  box-shadow: var(--box-shadow-button);
+}
+.hero-form-container .form-button { 
+    width: 100%;
+    margin-top: 1rem;
 }
 
+.plan-cta-button { /* Botón dentro de los planes, puede ser ligeramente diferente */
+  display: inline-block;
+  background-color: var(--secondary-color);
+  color: var(--white);
+  border: none;
+  padding: 10px 20px; 
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border-radius: var(--border-radius-small);
+  cursor: pointer;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out, box-shadow 0.2s ease-in-out;
+  box-shadow: var(--box-shadow-button);
+  margin-bottom: 20px;
+}
+
+
+.hero-form-container .form-button:hover,
+.hero-cta-button:hover,
+.plan-cta-button:hover {
+  background-color: #008cbf; 
+  box-shadow: var(--box-shadow-button-hover);
+  transform: translateY(-2px);
+}
+.hero-form-container .form-button:active,
+.hero-cta-button:active,
+.plan-cta-button:active {
+  transform: translateY(0px);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+
+/* === ESTILOS EXCLUSIVOS PARA EL FORMULARIO EN EL HERO === */
 .hero-form-container {
   flex: 1;
-  max-width: 450px; /* Aumentamos un poco el ancho para las pestañas */
+  max-width: 520px; 
   background: var(--white);
-  padding: 1.5rem 2rem 2.5rem; /* Ajustamos padding para las pestañas */
-  border-radius: 18px;
-  box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+  padding: 2rem 2rem 1.8rem; 
+  border-radius: var(--border-radius-large); 
+  box-shadow: var(--box-shadow-form); 
   color: var(--text-color);
+  transition: box-shadow 0.3s ease-in-out; 
 }
 
-.hero-form-container h2 { /* Estilo para los títulos dentro de las pestañas */
-  color: var(--primary-color);
-  font-size: 1.5rem; /* Ligeramente más pequeño */
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-/* Estilos para Pestañas del Formulario */
-.form-tabs {
+.hero-form-container .form-tabs { 
   display: flex;
   margin-bottom: 1.5rem;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid var(--border-soft-color); 
 }
 
-.tab-link {
+.hero-form-container .tab-link { 
   flex: 1;
-  padding: 12px 10px;
+  padding: 12px 10px; 
   cursor: pointer;
   border: none;
   background-color: transparent;
-  font-size: 1rem;
+  font-size: 0.95rem; 
   font-weight: 600;
-  color: var(--dark-gray);
+  color: #6c757d; 
   font-family: 'Montserrat', sans-serif;
-  border-bottom: 3px solid transparent; /* Borde inferior para la pestaña activa */
-  transition: color 0.3s ease, border-color 0.3s ease;
-  margin-bottom: -1px; /* Para que el borde inferior se superponga con el del contenedor */
+  border-bottom: 3px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  margin-bottom: -1px; 
+  text-align: center;
 }
 
-.tab-link:hover {
+.hero-form-container .tab-link:hover { 
   color: var(--primary-color);
 }
-  
-.tab-link.active { /* Estilos para la pestaña del botón activo */
+
+.hero-form-container .tab-link.active { 
   color: var(--primary-color);
   border-bottom-color: var(--primary-color);
 }
 
-.tab-content { /* Por defecto, el contenido de las pestañas está oculto */
+.hero-form-container .tab-content { 
   display: none; 
 }
 
-.tab-content.active { /* Solo el contenido de la pestaña con clase "active" se muestra */
+.hero-form-container .tab-content.active { 
   display: block; 
 }
+
+.hero-form-container h2 { 
+  color: var(--primary-color);
+  font-size: 1.3rem; 
+  font-weight: 600; 
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+
+.hero-form-container .form-group { 
+  margin-bottom: 1rem; 
+  position: relative; 
+}
+.hero-form-container .form-group:last-of-type {
+    margin-bottom: 1.2rem;
+}
+
+.hero-form-container label { 
+  display: block;
+  margin-bottom: 0.3rem; 
+  font-weight: 500; 
+  font-size: 0.8rem; 
+  color: #495057; 
+}
+
+.hero-form-container input[type="text"],
+.hero-form-container input[type="tel"],
+.hero-form-container input[type="email"],
+.hero-form-container input[type="number"],
+.hero-form-container input[type="date"], /* AÑADIDO input[type="date"] AL GRUPO */
+.hero-form-container select,
+.hero-form-container textarea { 
+  width: 100%;
+  padding: 10px 12px; 
+  border: 1px solid #ced4da; 
+  border-radius: var(--border-radius-small); 
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem; 
+  line-height: 1.5; /* Asegurar una altura de línea consistente */
+  color: #495057; 
+  background-color: var(--white); 
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  resize: none; /* Ya estaba para textarea, no afecta a otros inputs */
+  /* Para asegurar la misma altura, podemos definir una altura explícita o confiar en padding y line-height */
+  /* min-height: 38px;  Por ejemplo, si el padding y line-height no son suficientes */
+}
+
+.hero-form-container input[type="text"]:not(:valid) {
+  border-color: var(--error-border);
+  box-shadow: 0 0 0 0.2rem rgba(255, 82, 82, 0.2);
+}
+.hero-form-container input[type="tel"]:not(:valid) {
+  border-color: var(--error-border);
+  box-shadow: 0 0 0 0.2rem rgba(255, 82, 82, 0.2);
+}
+
+.hero-form-container input[type="email"]:not(:valid) {
+  border-color: var(--error-border);
+  box-shadow: 0 0 0 0.2rem rgba(255, 82, 82, 0.2);
+}
+
+.hero-form-container input[type="number"]:not(:valid) {
+  border-color: var(--error-border);
+  box-shadow: 0 0 0 0.2rem rgba(255, 82, 82, 0.2);
+}
+
+.hero-form-container input[type="date"]:not(:valid) {
+  border-color: var(--error-border);
+  box-shadow: 0 0 0 0.2rem rgba(255, 82, 82, 0.2);
+}
+
+.hero-form-container input[type="date"]:not(:valid)::-webkit-datetime-edit {
+    color: var(--placeholder-color); /* Para Chrome/Edge */
+}
+.hero-form-container input[type="date"]:not(:valid)::-moz-placeholder {
+    color: var(--placeholder-color); /* Para Firefox */
+}
+.hero-form-container input[type="date"]:not(:valid):-ms-input-placeholder {
+    color: var(--placeholder-color); /* Para IE */
+}
+/* Para algunos navegadores, el placeholder del date es más difícil de estilizar directamente */
+/* Una alternativa es usar un label flotante o un placeholder con JS si es crucial */
+.hero-form-container input:focus, 
+.hero-form-container select:focus, 
+.hero-form-container textarea:focus { 
+  border-color: var(--secondary-color); 
+  outline: none; 
+  box-shadow: 0 0 0 0.2rem rgba(0, 174, 239, 0.2); 
+}
+
+.hero-form-container ::placeholder { 
+  color: var(--placeholder-color); 
+  opacity: 1; 
+}
+.hero-form-container :-ms-input-placeholder { 
+  color: var(--placeholder-color);
+}
+.hero-form-container ::-ms-input-placeholder { 
+  color: var(--placeholder-color);
+}
+
+.hero-form-container .feedback-message { 
+  padding: 0.7rem 1rem;
+  margin-top: 1rem; 
+  border-radius: var(--border-radius-small);
+  text-align: center;
+  display: none; 
+  font-size: 0.8rem;
+}
+.hero-form-container .feedback-message.success { 
+  background-color: var(--success-bg);
+  color: var(--success-text);
+  border: 1px solid var(--success-border);
+}
+.hero-form-container .feedback-message.error { 
+  background-color: var(--error-bg);
+  color: var(--error-text);
+  border: 1px solid var(--error-border);
+}
+/* === FIN DE ESTILOS EXCLUSIVOS PARA EL FORMULARIO EN EL HERO === */
+
 
 /* Benefits Section */
 .benefits {
   padding: 60px 0;
   background: var(--light-gray);
 }
-
-.benefits h2 {
-  text-align: center;
-  font-size: 2.2rem;
-  color: var(--primary-color);
-  margin-bottom: 40px;
-}
-.benefits-grid {
-  display: flex; /* 1. Cambiamos de grid a flex */
-  justify-content: space-between; /* 2. Distribuye el espacio entre los ítems */
-  gap: 20px; /* 3. Espacio entre los ítems (puedes ajustar este valor) */
-  flex-wrap: nowrap; /* 4. Asegura que no se envuelvan a la siguiente línea */
-}
+  .benefits-grid {
+  display: flex; 
+  justify-content: space-between; 
+  gap: 20px; 
+  flex-wrap: nowrap; 
+  }
 .benefit-item {
   background: var(--white);
-  padding: 2rem;
-  border-radius: 8px;
+  padding: 2.5rem 2rem; 
+  border-radius: var(--border-radius-medium);  
   text-align: center;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-  flex-basis: 23%; /* 5. Define el ancho base de cada ítem (aproximadamente 1/4 menos el gap) */
-  /* Opcionalmente, puedes usar flex: 1; si quieres que crezcan y se encojan para llenar el espacio,
-     pero con flex-basis y nowrap es más directo para mantenerlos en una fila con un tamaño base. */
-  min-width: 200px; /* 6. (Opcional) Ancho mínimo para evitar que se compriman demasiado en pantallas muy pequeñas si no hay scroll horizontal */
+  box-shadow: var(--box-shadow-subtle); 
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+  flex-basis: 23%; 
+  min-width: 200px; 
+  }
+.benefit-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 25, 60, 0.12);
 }
 
 .benefit-item .icon {
-  font-size: 2.8rem;
+  font-size: 2.5rem; 
   color: var(--secondary-color);
-  margin-bottom: 1rem;
-}
+  margin-bottom: 1.2rem; 
+  }
 
 .benefit-item .icon i {
   /* Estilos específicos para el ícono si son necesarios */
-}
+  }
 
 .benefit-item h3 {
-  font-size: 1.3rem;
+  font-size: 1.25rem; 
   color: var(--primary-color);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem; 
+  font-weight: 600;
+  }
+.benefit-item p {
+    font-size: 0.95rem; 
+    line-height: 1.5;
+    color: var(--dark-gray);
+}
+
+/* Planes Section */
+.planes {
+  padding: 60px 0;
+  background-color: var(--white); 
+  }
+
+.planes-subtitulo {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--dark-gray);
+  margin-bottom: 40px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  }
+
+.planes-layout-container {
+  display: flex;
+  gap: 30px; 
+  max-width: 1140px; 
+  margin: 0 auto; 
+  }
+
+.planes-columna { 
+  flex: 1; 
+  }
+
+.planes-acordeon { 
+  border: 1px solid var(--border-soft-color); 
+  border-radius: var(--border-radius-medium); 
+  overflow: hidden; 
+  margin-bottom: 20px; 
+  box-shadow: var(--box-shadow-subtle); 
+}
+
+.plan-item {
+  border-bottom: 1px solid var(--border-soft-color);
+}
+.plan-item:last-child {
+  border-bottom: none; 
+}
+
+.plan-header {
+  background-color: var(--white); 
+  color: var(--primary-color);
+  cursor: pointer;
+  padding: 18px 25px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 1.1rem; 
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
+  /* border-bottom: 1px solid #f0f3f7; */ /* Quitado, el borde está en plan-item */
+}
+.plan-item:not(:last-child) .plan-header { /* Si no es el último, puede tener un borde inferior sutil */
+    /* border-bottom: 1px solid #f0f3f7; */ /* Opcional si se quiere más separación visual */
+}
+
+.plan-header.active,
+.plan-header:hover {
+  background-color: #f8f9fa; 
+}
+
+.plan-header .plan-icon {
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
+  color: var(--secondary-color);
+}
+
+.plan-header.active .plan-icon {
+  transform: rotate(180deg);
+}
+
+.plan-content {
+  padding: 0 25px;
+  background-color: #fdfdfd; 
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out, padding 0.4s ease-out; 
+}
+
+.plan-content p:first-child { 
+    padding-top: 20px; 
+    margin-top: 0;
+}
+.plan-content p {
+  margin-bottom: 15px;
+  line-height: 1.7;
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+.plan-content ul {
+  list-style: none; 
+  padding-left: 5px; 
+  margin-bottom: 20px;
+}
+
+.plan-content ul li {
+  padding-left: 25px;
+  position: relative;
+  margin-bottom: 8px;
+  color: var(--dark-gray);
+  font-size: 0.9rem;
+}
+
+.plan-content ul li::before {
+  content: '\f00c'; 
+  font-family: 'Font Awesome 6 Free'; 
+  font-weight: 900; 
+  position: absolute;
+  left: 0px; 
+  top: 3px; /* Ajustar alineación vertical del check */
+  color: var(--secondary-color); 
+  font-size: 0.9em;
 }
 
 /* Testimonials Section */
 .testimonials {
   padding: 60px 0;
-}
-
-.testimonials h2 {
-  text-align: center;
-  font-size: 2.2rem;
-  color: var(--primary-color);
-  margin-bottom: 40px;
+  background-color: var(--light-gray); /* Fondo alterno */
 }
 
 .testimonial-grid {
@@ -260,42 +596,52 @@ header .contact-info a:hover {
 }
 
 .testimonial-item {
-  background: var(--light-gray);
-  padding: 1.5rem;
-  border-left: 5px solid var(--secondary-color);
-  border-radius: 4px;
+  background: var(--white); /* Fondo blanco para contraste con light-gray */
+  padding: 2rem; 
+  border-left: 4px solid var(--secondary-color); 
+  border-radius: var(--border-radius-medium); 
+  box-shadow: var(--box-shadow-subtle); 
+  margin-bottom: 1.5rem; 
 }
 
 .testimonial-item p {
   margin-bottom: 1rem;
   font-style: italic;
+  color: var(--text-color); 
+  font-size: 1rem;
 }
 
-.testimonial-item span {
+.testimonial-item span { 
   display: block;
   text-align: right;
   font-weight: 600;
-  color: var(--dark-gray);
+  color: var(--primary-color); 
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
 }
 
 /* Footer */
 footer {
   background: var(--primary-color);
-  color: var(--white);
+  color: rgba(255, 255, 255, 0.9); /* Aumentar opacidad para mejor legibilidad */
   text-align: center;
-  padding: 2rem 0;
-  margin-top: 40px;
+  padding: 2.5rem 1rem; 
+  margin-top: 60px; 
 }
 footer p {
-  margin: 0;
+  margin: 0.5rem 0; 
   font-size: 0.9rem;
 }
 footer a {
-  color: var(--secondary-color);
-  text-decoration: none;
+  color: var(--white); 
+  text-decoration: underline;
+  text-decoration-color: var(--secondary-color); 
+  text-underline-offset: 3px;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
 }
 footer a:hover {
-  text-decoration: underline;
+  color: var(--secondary-color); 
+  text-decoration-color: var(--white);
 }
 
 /* Feedback Message */
@@ -318,234 +664,126 @@ footer a:hover {
   border: 1px solid #f5c6cb;
 }
 
-/* Planes Section */
-.planes {
-  padding: 60px 0;
-  background-color: var(--white); /* O var(--light-gray) si prefieres alternar fondos */
-}
-
-.planes h2 {
-  text-align: center;
-  font-size: 2.2rem;
-  color: var(--primary-color);
-  margin-bottom: 15px;
-}
-
-.planes-subtitulo {
-  text-align: center;
-  font-size: 1.1rem;
-  color: var(--dark-gray);
-  margin-bottom: 40px;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.planes-layout-container {
-  display: flex;
-  gap: 30px; /* Espacio entre las dos columnas de acordeones */
-  max-width: 1200px; /* Ajusta el ancho máximo si es necesario */
-  margin: 0 auto; /* Centra el contenedor de las columnas */
-}
-
-.planes-columna {
-  flex: 1; /* Cada columna tomará la mitad del espacio disponible */
-  /* Opcional: si quieres un ancho base específico para cada columna */
-  /* min-width: 400px; */
-}
-
-.planes-acordeon {
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  overflow: hidden; 
-  margin-bottom: 20px; /* Añadimos un margen inferior si hay múltiples acordeones en una columna (aunque aquí cada columna tiene uno) */
-}
-
-.plan-item {
-  border-bottom: 1px solid #e0e0e0;
-}
-.plan-item:last-child {
-  border-bottom: none; /* Quitar el borde del último ítem */
-}
-
-.plan-header {
-  background-color: #f9f9f9;
-  color: var(--primary-color);
-  cursor: pointer;
-  padding: 18px 25px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 1.05rem; /* Ligeramente más pequeño para que quepan más planes si es necesario */
-  font-weight: 600;
-  font-family: 'Montserrat', sans-serif;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: background-color 0.3s ease;
-}
-
-.plan-header:hover,
-.plan-header.active {
-  background-color: #f0f0f0;
-}
-
-.plan-header .plan-icon {
-  font-size: 0.9rem;
-  transition: transform 0.3s ease;
-  color: var(--secondary-color);
-}
-
-.plan-header.active .plan-icon {
-  transform: rotate(180deg);
-}
-
-.plan-content {
-  padding: 0 25px;
-  background-color: white;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease-out, padding 0.4s ease-out; /* Transición suave */
-}
-
-.plan-content p {
-  margin-top: 15px; /* Para que el padding de arriba se aplique bien en la transición */
-  margin-bottom: 15px;
-  line-height: 1.7;
-  color: var(--text-color);
-}
-
-.plan-content ul {
-  list-style: none; /* Quitar viñetas por defecto */
-  padding-left: 0;
-  margin-bottom: 20px;
-}
-
-.plan-content ul li {
-  padding-left: 25px;
-  position: relative;
-  margin-bottom: 8px;
-  color: var(--dark-gray);
-}
-
-.plan-content ul li::before {
-  content: '\f00c'; /* Código de Font Awesome para un check mark */
-  font-family: 'Font Awesome 6 Free'; /* Asegúrate que coincida con la versión de FA */
-  font-weight: 900; /* Necesario para iconos sólidos */
-  position: absolute;
-  left: 0;
-  top: 2px;
-  color: var(--secondary-color); /* Color del check mark */
-  font-size: 0.9em;
-}
-
-.plan-cta-button {
-  display: inline-block;
-  background-color: var(--secondary-color);
-  color: var(--white);
-  padding: 10px 20px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  border-radius: 4px;
-  text-decoration: none;
-  margin-bottom: 20px; /* Espacio después del botón */
-  transition: background-color 0.3s ease;
-}
-
-.plan-cta-button:hover {
-  background-color: #008cbf;
-}
-
 /* Responsive Adjustments */
-@media (max-width: 992px) {
+@media (max-width: 992px) { /* Tablets */
   .hero .container {
     flex-direction: column;
     text-align: center;
+    gap: 25px;
   }
   .hero-content {
     max-width: 100%;
-    margin-bottom: 30px;
-    padding-top: 20px; /* Reducir el padding-top en tablet/móvil */
+    margin-bottom: 25px;
+    padding-top: 10px; 
   }
   .hero-form-container {
     max-width: 500px; 
     margin: 0 auto;
+    padding: 1.8rem 1.8rem 1.5rem; 
   }
   .hero-content h1 {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
   }
   .hero-content p {
-    font-size: 1.1rem;
-    margin-bottom: 2rem; /* Ajustar margen del párrafo */
+      font-size: 1rem;
+      margin-bottom: 1.5rem; 
   }
   .hero-cta-button {
-    padding: 10px 20px;
-    font-size: 1rem;
+    padding: 12px 25px;
+    font-size: 0.95rem;
   }
-}
-  
-@media (max-width: 768px) {
-  header .container {
-    flex-direction: column;
-    gap: 10px;
-  }
-  header .contact-info {
-    text-align: center;
-  }
-  .hero-content h1 {
-    font-size: 2rem;
-  }
-  .benefits-grid, .testimonial-grid {
-    grid-template-columns: 1fr; /* Una columna en móviles */
-  }
-  
-  /* ESTA REGLA ES LA QUE HACE QUE SE PONGAN EN UNA COLUMNA EN MÓVILES.
-     SI QUIERES QUE SIEMPRE ESTÉN EN FILA, DEBES ELIMINARLA O MODIFICARLA. */
-  /* .benefits-grid, .testimonial-grid {
-    grid-template-columns: 1fr; 
-  } */
 
-  /* Si quieres que en móviles haya scroll horizontal para ver las 4 tarjetas: */
   .benefits-grid {
-    overflow-x: auto; /* Permite scroll horizontal */
-    padding-bottom: 15px; /* Espacio para la barra de scroll si aparece */
-    justify-content: flex-start; /* Alinea los ítems al inicio si hay scroll */
+    gap: 15px; /* Menos gap en tablet */
   }
-  .plan-item {
-    flex-shrink: 0; /* Evita que los ítems se encojan para caber sin scroll */
-    width: 250px; /* Dales un ancho fijo en móviles si usas scroll horizontal */
-    /* O ajusta flex-basis y min-width según necesites */
+  .benefit-item {
+    padding: 2rem 1.5rem;
+    min-width: 180px; /* Ajustar min-width */
   }
-}
+  .benefit-item h3 {
+    font-size: 1.15rem;
+  }
+  .benefit-item p {
+    font-size: 0.9rem;
+  }
 
-@media (max-width: 992px) { /* Para tablets */
   .planes-layout-container {
-    /* gap: 20px; Podrías reducir el gap si es necesario */
+    gap: 20px; 
   }
   .plan-header {
-    font-size: 1rem; /* Ajustar tamaño de fuente en tablet */
+    font-size: 1rem; 
     padding: 15px 20px;
   }
   .plan-content {
     padding: 0 20px;
   }
+  .plan-content p, .plan-content ul li {
+      font-size: 0.85rem;
+  }
 }
 
-@media (max-width: 768px) { /* Para móviles */
-  .planes-layout-container {
-    flex-direction: column; /* Apila las columnas en móviles */
-    gap: 0; /* Quitar el gap horizontal, el margen de .planes-acordeon se encargará del vertical */
+@media (max-width: 768px) { /* Móviles */
+  body {
+      font-size: 15px; /* Ligeramente más pequeño en móviles si es necesario */
   }
-  .planes-columna {
-    /* flex: none;  No es necesario si flex-direction es column */
-    /* width: 100%; No es necesario si flex-direction es column */
+  .benefits h2,
+  .planes h2,
+  .testimonials h2 {
+    font-size: 1.8rem; /* Títulos de sección más pequeños en móvil */
+    margin-bottom: 30px;
+  }
+
+  header .container {
+    flex-direction: column;
+    gap: 15px;
+  }
+  header .contact-info {
+    text-align: center;
+  }
+
+  .hero {
+      padding: 30px 0;
+  }
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+  .hero-content p {
+      font-size: 0.95rem;
+  }
+
+  .benefits-grid {
+    overflow-x: auto; 
+    padding-bottom: 15px; 
+    justify-content: flex-start; 
+    flex-wrap: nowrap; /* Asegurar que no se envuelvan */
+  }
+  .benefit-item {
+    flex-shrink: 0; 
+    width: 260px; /* Ancho fijo para scroll horizontal */
+    /* O ajusta flex-basis y min-width según necesites */
+    margin-right: 15px; /* Espacio entre items en scroll horizontal */
+  }
+  .benefit-item:last-child {
+      margin-right: 0;
+  }
+
+
+  .planes-layout-container {
+    flex-direction: column; 
+    gap: 0; 
   }
   .planes-acordeon {
-    /* El margin-bottom: 20px; que añadimos antes ayudará a separar los acordeones cuando estén en columna */
+     margin-bottom: 25px; /* Espacio entre los dos bloques de acordeones en móvil */
   }
   .plan-header {
-    font-size: 1.05rem; /* Volver al tamaño original o ajustarlo para móvil */
+    font-size: 1.05rem; 
     padding: 18px 25px;
+  }
+
+  .testimonial-grid {
+    grid-template-columns: 1fr; 
+  }
+  .testimonial-item {
+      padding: 1.5rem;
   }
 }

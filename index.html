@@ -45,18 +45,38 @@
       <!-- CONTENIDO DE PESTAÑAS -->
       <div id="personas" class="tab-content active">
         <h2>Dejanos tus datos y te asesoramos (Personas)</h2>
-        <form id="formulario"> <!-- ID original del formulario -->
+        <form id="formulario">
+          <div class="form-group">
           <label for="nombre">Nombre completo *</label>
           <input type="text" id="nombre" name="nombre" placeholder="Ej: Ana Pérez" required>
+      </div>
 
-          <label for="telefono">Teléfono (con código de área) *</label>
-          <input type="tel" id="telefono" name="telefono" placeholder="Ej: 1134567890" required>
+          <div class="form-group">
+            <label for="telefono">Teléfono (con código de área) *</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="Ej: 1134567890" required>
+      </div>
 
-          <label for="email">Correo electrónico</label>
-          <input type="email" id="email" name="email" placeholder="tuemail@ejemplo.com">
+          <div class="form-group">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" placeholder="tuemail@ejemplo.com">
+    </div>
 
-          <label for="localidad">Localidad</label>
-          <input type="text" id="localidad" name="localidad" placeholder="Ej: Palermo, CABA">
+          <div class="form-group">
+            <label for="localidad">Localidad</label>
+            <input type="text" id="localidad" name="localidad" placeholder="Ej: Palermo, CABA">
+  </div>
+
+          <!-- CAMPO MODIFICADO Y NUEVO CAMPO -->
+          <div class="form-group">
+            <label for="fecha-nacimiento">Fecha de Nacimiento</label>
+            <input type="date" id="fecha-nacimiento" name="fecha-nacimiento">
+      </div>
+
+          <div class="form-group">
+            <label for="mensaje-persona">Mensaje (opcional)</label>
+            <textarea id="mensaje-persona" name="mensaje-persona" placeholder="Contanos qué tipo de plan buscás o tu consulta..."></textarea>
+      </div>
+          <!-- FIN CAMPO MODIFICADO Y NUEVO CAMPO -->
           
           <button type="submit" class="form-button">Solicitar Asesoramiento</button>
         </form>
@@ -99,33 +119,33 @@
       <div class="benefit-item">
         <div class="icon">
           <i class="fas fa-hospital"></i> <!-- Icono para Cobertura -->
-      </div>
+  </div>
         <h3>Amplia Cobertura Nacional</h3>
         <p>Accedé a una extensa red de sanatorios, clínicas y profesionales en todo el país.</p>
       </div>
       <div class="benefit-item">
         <div class="icon">
           <i class="fas fa-user-doctor"></i> <!-- Icono para Atención Inmediata -->
-      </div>
+        </div>
         <h3>Atención Inmediata</h3>
         <p>Gestiones ágiles y acceso rápido a consultas, estudios y urgencias cuando más lo necesitás.</p>
       </div>
       <div class="benefit-item">
         <div class="icon">
           <i class="fas fa-hand-holding-dollar"></i> <!-- Icono para Planes Accesibles -->
-    </div>
+        </div>
         <h3>Planes Accesibles</h3>
         <p>Opciones de cobertura que se adaptan a tu presupuesto sin sacrificar calidad de servicio.</p>
-  </div>
+      </div>
       <div class="benefit-item">
         <div class="icon">
           <i class="fas fa-mobile-screen-button"></i> <!-- Icono para Gestión Online -->
-      </div>
+        </div>
         <h3>Gestión Online</h3>
         <p>Realizá tus trámites, consultas y gestiones de forma simple desde nuestra app o web.</p>
       </div>
+        </div>
       </div>
-    </div>
 </section>
 
 <section id="planes-section" class="planes">
@@ -150,7 +170,7 @@
             <li>Estudios de diagnóstico básicos.</li>
           </ul>
           <a href="#formulario" class="plan-cta-button">Me interesa este plan</a>
-  </div>
+      </div>
       </div>
 
       <!-- Plan 2 -->
@@ -170,8 +190,8 @@
             <li>Asistencia al viajero nacional.</li>
           </ul>
           <a href="#formulario" class="plan-cta-button">Me interesa este plan</a>
-        </div>
-      </div>
+    </div>
+  </div>
 
       <!-- Plan 3 -->
       <div class="plan-item">
@@ -190,7 +210,7 @@
             <li>Check-up anual preventivo.</li>
           </ul>
           <a href="#formulario" class="plan-cta-button">Me interesa este plan</a>
-        </div>
+  </div>
       </div>
 
         <!-- Plan 4 -->

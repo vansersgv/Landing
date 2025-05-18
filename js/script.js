@@ -8,6 +8,9 @@ document.getElementById('formulario').addEventListener('submit', function(e) {
   const telefono = document.getElementById('telefono').value.trim();
   const email = document.getElementById('email').value.trim();
   const localidad = document.getElementById('localidad').value.trim();
+  const fechaNacimiento = document.getElementById('fecha-nacimiento').value; // CAMBIADO: obtener valor de fecha
+  const mensajePersona = document.getElementById('mensaje-persona').value.trim(); // NUEVO
+
   if (!nombre || !telefono) {
     feedbackDiv.textContent = 'Por favor completá Nombre y Teléfono.';
     feedbackDiv.className = 'feedback-message error';
@@ -17,7 +20,7 @@ document.getElementById('formulario').addEventListener('submit', function(e) {
 
   const numeroWhatsApp = '5491180591305';
 
-  let mensajeWA = `*Nuevo Lead de Prepaga (TuPrepaga):*\n\n`;
+  let mensajeWA = `*Nuevo Lead de Prepaga (Personas):*\n\n`;
   mensajeWA += `*Nombre:* ${nombre}\n`;
   mensajeWA += `*Teléfono:* ${telefono}\n`;
   if (email) {
@@ -25,6 +28,23 @@ document.getElementById('formulario').addEventListener('submit', function(e) {
   }
   if (localidad) {
     mensajeWA += `*Localidad:* ${localidad}\n`;
+  }
+  if (fechaNacimiento) { // CAMBIADO: verificar si hay fecha de nacimiento
+    // Formatear la fecha si es necesario (el input date devuelve YYYY-MM-DD)
+    // Podrías querer DD/MM/YYYY para el mensaje de WhatsApp
+    let fechaFormateada = fechaNacimiento;
+    try {
+        const [year, month, day] = fechaNacimiento.split('-');
+        if (year && month && day) {
+            fechaFormateada = `${day}/${month}/${year}`;
+        }
+    } catch (error) {
+        // No hacer nada, usar el formato original si hay error
+    }
+    mensajeWA += `*Fecha de Nacimiento:* ${fechaFormateada}\n`;
+  }
+  if (mensajePersona) { // NUEVO - Añadir si tiene valor
+    mensajeWA += `*Mensaje:* ${mensajePersona}\n`;
   }
   mensajeWA += `\nEnviado desde la Landing Page.`;
 
@@ -37,7 +57,7 @@ document.getElementById('formulario').addEventListener('submit', function(e) {
 
   setTimeout(() => {
     window.open(urlWhatsApp, '_blank');
-    document.getElementById('formulario').reset();
+    this.reset(); 
     setTimeout(() => {
         feedbackDiv.style.display = 'none';
     }, 5000);
@@ -185,6 +205,7 @@ if (formularioEmpresas) {
     }, 1500);
   });
 }
+
 // Acordeón para la sección de Planes
 const planHeaders = document.querySelectorAll('.plan-header');
 
